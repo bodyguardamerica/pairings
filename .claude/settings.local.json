@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm run migrate:*)",
+      "Bash(node:*)",
+      "Bash(ping:*)",
+      "Bash(nslookup:*)",
+      "Bash(netsh interface ipv6 show interface:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout /t 3)",
+      "Bash(curl:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx create-expo-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npm start)",
+      "Bash(npx expo start:*)",
+      "Bash(npx expo install:*)",
+      "Bash(npm run web:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 5)",
+      "Bash(tasklist:*)",
+      "Bash(cat:*)",
+      "Bash(npm start:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

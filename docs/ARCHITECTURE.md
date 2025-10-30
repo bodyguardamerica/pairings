@@ -228,18 +228,18 @@ Game Modules (pluggable)
 **Tournament Points:**
 - Win = 1 TP
 - Loss/Tie = 0 TP
-- Bye = 1 TP + 3 VP + (army points / 2, rounded up)
+- Bye = 1 TP + 3 CP + (army points / 2, rounded up)
 
 **Victory Conditions:**
 1. **Assassination** - Opponent's Leader destroyed
-2. **Scenario** - Victory Points threshold (typically 3+ ahead)
+2. **Scenario** - Control Point threshold (typically 3+ ahead)
 3. **Deathclock** - Opponent runs out of time
 
 **Tiebreakers (in order):**
 1. Tournament Points (wins)
 2. Strength of Schedule (sum of opponents' TP)
-3. Control/Victory Points earned
-4. Army Points Destroyed (opponent models destroyed)
+3. Control Points (CP)
+4. Army Points (AP)
 
 ### Deathclock System
 
@@ -324,15 +324,15 @@ Game Modules (pluggable)
 - Opponent name
 - List played
 - Result (Win/Loss/Tie/Bye)
-- Victory Points scored
-- Army Points Destroyed
+- Control Points (CP)
+- Army Points (AP)
 - Time remaining on clock (optional)
 - Scenario played
 
 **Per Player (Tournament-wide):**
-- Total Tournament Points
-- Total Victory Points
-- Total Army Points Destroyed
+- Total Tournament Points (TP)
+- Total Control Points (CP)
+- Total Army Points (AP)
 - Strength of Schedule
 - Opponents faced (prevent rematches)
 - Number of times paired down

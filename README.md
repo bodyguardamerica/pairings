@@ -1,297 +1,287 @@
 # Pairings Project - Universal Tournament Organizer
 
-A modern, mobile-first tournament management platform for tabletop gaming. Currently supporting Warmachine Steamroller 2025 format, with plans to expand to Magic: The Gathering, Warhammer, and other games.
+A complete web and mobile application for organizing tabletop game tournaments with automated pairings, live standings, and player statistics tracking.
 
-**🚧 Status: In Development (Phase 0: Foundation)**
+**Primary Game Module:** Warmachine Steamroller 2025
 
----
-
-## Features
-
-### For Players
-- ✅ Create account and track statistics
-- ✅ Register for tournaments
-- ✅ Check in day-of
-- ✅ View live pairings and standings
-- ✅ Submit match results
-- ✅ Receive push notifications for rounds
-- ✅ View personal tournament history
-
-### For Tournament Organizers
-- ✅ Create and manage tournaments
-- ✅ Automated Swiss pairing system
-- ✅ Scenario selection (random or manual)
-- ✅ Real-time standings calculation
-- ✅ Check-in management
-- ✅ Drop player handling
-- ✅ Manual pairing adjustments
-
-### For Admins
-- ✅ User management (ban, role changes)
-- ✅ Tournament oversight
-- ✅ System analytics
-- ✅ Audit logging
+**Status:** ✅ MVP Complete - Backend Ready (Frontend in progress)
 
 ---
 
-## Technology Stack
-
-### Frontend
-- **Framework:** React Native (Expo)
-- **Deployment:** Vercel (web), App Stores (mobile)
-- **State Management:** React Context / Redux
-
-### Backend
-- **Runtime:** Node.js + Express
-- **Database:** PostgreSQL
-- **Authentication:** Supabase Auth
-- **Real-time:** Supabase Realtime / Socket.io
-
-### Infrastructure
-- **Development:** Local + Supabase (free tier)
-- **Beta:** Railway.app + Supabase (free tier)
-- **Production:** Hetzner VPS
-
----
-
-## Documentation
-
-All project documentation is in the `/docs` folder:
-
-- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - System design and technical architecture
-- **[DATABASE.md](docs/DATABASE.md)** - Complete database schema
-- **[API.md](docs/API.md)** - API endpoint specifications
-- **[ROADMAP.md](docs/ROADMAP.md)** - Development timeline and feature plan
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Deployment guides for all environments
-
----
-
-## Quick Start
+## 🚀 Quick Start Guide
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
-- Git
-- VS Code (recommended)
+- **Node.js** (v18+) - [Download](https://nodejs.org/)
+- **Git** - [Download](https://git-scm.com/)
+- **VS Code** - [Download](https://code.visualstudio.com/)
+- **Expo Go** app on your phone (iOS/Android) - For testing the mobile app
 
-### Local Development Setup
+### 1. Clone This Project
 
-1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/pairings-project.git
 cd pairings-project
 ```
 
-2. **Set up Supabase**
-   - Create account at [supabase.com](https://supabase.com)
-   - Create new project
-   - Copy Project URL and API keys
+### 2. Set Up Backend
 
-3. **Set up Backend**
+See [backend/README_COMPLETE.md](backend/README_COMPLETE.md) for detailed instructions.
+
+**Quick Setup:**
 ```bash
 cd backend
 npm install
 cp .env.example .env
 # Edit .env with your Supabase credentials
-npm run migrate
 npm run dev
 ```
 
-4. **Set up Frontend**
+Backend will run on: `http://localhost:3000`
+
+### 3. Set Up Frontend
+
+See [FRONTEND_SETUP.md](FRONTEND_SETUP.md) for detailed instructions.
+
+**Quick Setup:**
 ```bash
-cd ../frontend
+cd frontend
 npm install
-cp .env.example .env
-# Edit .env with your Supabase credentials
-npx expo start
+# Edit src/services/api.js to set your API URL
+npm start
 ```
 
-5. **Open in Expo Go**
-   - Install Expo Go on your phone
-   - Scan QR code from terminal
-   - App should load
-
-For detailed setup instructions, see [DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Scan the QR code with Expo Go app to open the mobile app!
 
 ---
 
-## Project Structure
+## 📱 What's Been Built
+
+### Backend (Node.js + Express) ✅
+Complete tournament management API with 26 endpoints: authentication, tournaments, players, rounds, matches, standings, Swiss pairings, and Warmachine scoring. See [Backend Setup](backend/README_COMPLETE.md) for details.
+
+### Frontend (React Native + Expo) ✅  
+Mobile-first tournament management app with full tournament operations. See [Frontend Setup](FRONTEND_SETUP.md) for details.
+
+---
+
+## 📁 Project Structure
 
 ```
 pairings-project/
-├── docs/                  # All project documentation
-│   ├── ARCHITECTURE.md
-│   ├── DATABASE.md
-│   ├── API.md
-│   ├── ROADMAP.md
-│   └── DEPLOYMENT.md
-│
-├── backend/              # Node.js + Express API
+├── backend/                      # ✅ Complete
 │   ├── src/
-│   │   ├── core/        # Core system features
-│   │   ├── modules/     # Game-specific modules
-│   │   ├── api/         # API routes
-│   │   ├── middleware/
-│   │   └── utils/
+│   │   ├── core/                # Core tournament logic
+│   │   │   ├── auth/            # Authentication
+│   │   │   └── tournaments/     # Tournament management
+│   │   ├── modules/             # Game-specific modules
+│   │   │   └── warmachine/      # Warmachine Steamroller
+│   │   ├── api/                 # API routes
+│   │   ├── middleware/          # Auth & validation
+│   │   ├── utils/               # Helpers
+│   │   └── config/              # Database config
 │   ├── database/
-│   │   └── migrations/
-│   └── package.json
+│   │   └── migrations/          # Database schema
+│   └── .env                     # Environment variables
 │
-├── frontend/            # React Native (Expo) app
+├── frontend/                     # ✅ Complete
+│   ├── App.js                   # Main entry
 │   ├── src/
-│   │   ├── core/       # Shared components
-│   │   ├── modules/    # Game-specific screens
-│   │   ├── screens/    # App screens
-│   │   └── services/   # API client
-│   ├── app.json
+│   │   ├── components/          # Reusable components
+│   │   │   ├── common/          # Buttons, Inputs, Cards
+│   │   │   └── tournament/      # Tournament cards
+│   │   ├── screens/             # App screens
+│   │   │   ├── auth/            # Login, Register
+│   │   │   ├── tournaments/     # Tournament screens
+│   │   │   └── profile/         # Profile screen
+│   │   ├── navigation/          # Navigation setup
+│   │   ├── services/            # API client
+│   │   ├── utils/               # Auth helpers
+│   │   └── constants/           # Colors, typography
 │   └── package.json
 │
-└── README.md           # This file
+└── docs/                        # Documentation
+    ├── API_IMPLEMENTED.md       # ✅ API reference
+    ├── INDEX.md                 # ✅ Index
+    ├── ARCHITECTURE.md          # ✅ Architecture
+    ├── DATABASE.md              # ✅ Database schema
+    ├── ROADMAP.md               # ✅ Roadmap
+    └── DEPLOYMENT.md            # ✅ Deployment
 ```
 
 ---
 
-## Game Modules
+## 🎯 Key Features
 
-### Warmachine (Steamroller 2025) - In Development
-- ✅ Swiss pairing algorithm
-- ✅ 6 official scenarios
-- ✅ Deathclock system
-- ✅ Army list submission
-- ✅ Victory condition tracking
-- ✅ Strength of schedule tiebreakers
-
-### Coming Soon
-- Magic: The Gathering
-- Warhammer 40k
-- Age of Sigmar
+**Players:** Register for tournaments, submit match results, view live standings, track statistics  
+**Tournament Organizers:** Create/manage tournaments, generate Swiss pairings, control tournament lifecycle, manage co-organizers  
+**Admin:** System management features planned for Phase 3
 
 ---
 
-## Development Roadmap
+## 🔧 Tech Stack
 
-### Phase 0: Foundation (Current)
-Setting up infrastructure and core architecture
-
-### Phase 1: MVP (Target: Feb 2026)
-Basic tournament management with Warmachine support
-
-### Phase 2: Enhancement (Target: Apr 2026)
-Mobile apps, notifications, enhanced statistics
-
-### Phase 3: Production (Target: Jun 2026)
-Admin dashboard, performance optimization, scaling
-
-### Phase 4: Expansion (Target: Aug 2026+)
-Additional game systems and advanced features
-
-See [ROADMAP.md](docs/ROADMAP.md) for detailed timeline.
+**Backend:** Node.js + Express, PostgreSQL (Supabase), JWT (Supabase Auth)  
+**Frontend:** React Native + Expo, React Navigation, Axios  
+**Database:** PostgreSQL with UUIDs, JSONB, proper indexes
 
 ---
 
-## Contributing
+## 📚 Documentation
 
-We welcome contributions! Here's how you can help:
-
-### For Developers
-1. Review [ARCHITECTURE.md](docs/ARCHITECTURE.md) to understand the system
-2. Check [ROADMAP.md](docs/ROADMAP.md) for current priorities
-3. Create feature branch from `main`
-4. Make changes and test thoroughly
-5. Submit pull request with clear description
-
-### For Tournament Organizers
-- Test the platform and provide feedback
-- Report bugs via GitHub issues
-- Suggest features you'd like to see
-
-### For Players
-- Try the app and share your experience
-- Report any issues you encounter
-- Spread the word in your gaming community
+**Setup:** [Backend Setup](backend/README_COMPLETE.md) | [Frontend Setup](FRONTEND_SETUP.md) | [Quick Start](QUICKSTART.md)  
+**Technical:** [API Reference](docs/API_IMPLEMENTED.md) | [Architecture](docs/ARCHITECTURE.md) | [Database Schema](docs/DATABASE.md)  
+**Frontend:** [Design System](frontend/DESIGN-SYSTEM.md) | [Requirements](FRONTEND_REQUIREMENTS.md)  
+**Status:** [Current Status](PROJECT_STATUS_UPDATED.md) | [Admin Features (Planned)](ADMIN_FEATURES.md)
 
 ---
 
-## License
+## 🧪 Testing
 
-[To be determined - likely MIT or Apache 2.0]
-
----
-
-## Contact & Community
-
-- **GitHub Issues:** [Report bugs or request features](https://github.com/yourusername/pairings-project/issues)
-- **Discussions:** [Ask questions and share ideas](https://github.com/yourusername/pairings-project/discussions)
-- **Discord:** [Coming soon]
+Backend: `npm run dev` → Visit http://localhost:3000/health  
+Frontend: `npm start` → Scan QR with Expo Go  
+Test accounts: alice@example.com, bob@example.com (Password123!)
 
 ---
 
-## Acknowledgments
+## 🎨 Design System
 
-Inspired by [longshanks.org](https://longshanks.org) and the Warmachine community.
-
-Built with love for the tabletop gaming community.
+Purple gradient primary (#667eea → #764ba2), modern components. See [DESIGN-SYSTEM.md](frontend/DESIGN-SYSTEM.md) for details.
 
 ---
 
-## Project Status
+## 🚦 Current Status
 
-**Current Phase:** Phase 0 - Foundation  
-**Version:** 0.1.0-alpha  
-**Last Updated:** October 22, 2025
-
-### What's Working
-- ✅ Project documentation complete
-- ✅ Database schema designed
-- ✅ API specification defined
-- ✅ Development roadmap established
-
-### In Progress
-- 🔄 Setting up development environment
-- 🔄 Creating initial database migrations
-- 🔄 Building authentication system
-
-### Coming Next
-- ⏳ Tournament creation
-- ⏳ Swiss pairing algorithm
-- ⏳ Match result recording
-- ⏳ Live standings
+**Backend:** ✅ Complete - 26 API endpoints, Swiss pairings, Warmachine scoring  
+**Frontend:** ⏳ In Progress - Core functionality being built  
+**Next:** Phase 3 - Real-time updates, notifications, admin features
 
 ---
 
-## FAQ
+## 🛠️ Development
 
-**Q: When will it be ready to use?**  
-A: We're targeting February 2026 for MVP with basic Warmachine support.
+### Running Backend
 
-**Q: Will it support [my game]?**  
-A: We're starting with Warmachine, then expanding to other games based on demand.
+```bash
+cd backend
+npm run dev          # Development with auto-reload
+npm run start        # Production mode
+npm run migrate      # Run database migrations
+```
 
-**Q: How much will it cost?**  
-A: The platform will be free to use. Hosting costs are minimal (~$10/month at scale).
+### Running Frontend
 
-**Q: Can I help?**  
-A: Yes! Check the Contributing section above.
-
-**Q: Is there a mobile app?**  
-A: Yes, mobile apps for iOS and Android are planned for Phase 2 (April 2026).
-
-**Q: How is this different from existing platforms?**  
-A: Modern tech stack, mobile-first design, modular game system support, and completely open source.
-
----
-
-## Support This Project
-
-This is a passion project built for the community. Ways to support:
-
-- ⭐ Star this repository
-- 🐛 Report bugs and test features
-- 💡 Suggest improvements
-- 📢 Share with your gaming community
-- 🛠️ Contribute code or documentation
+```bash
+cd frontend
+npm start            # Start Expo dev server
+npm run android      # Open on Android
+npm run ios          # Open on iOS
+npm run web          # Open in browser
+```
 
 ---
 
-**Happy gaming! 🎲**
+
+---
+
+## 🐛 Troubleshooting
+
+### Backend Issues
+
+**Port in use:**
+```bash
+# Change PORT in .env file
+PORT=3001
+```
+
+**Database connection:**
+- Check Supabase credentials in .env
+- Verify project is running (green status)
+- Use transaction pooler URL
+
+### Frontend Issues
+
+**Cannot connect to API:**
+1. Check backend is running
+2. Update API_BASE_URL in `src/services/api.js`
+3. Use your computer's IP for physical devices
+
+**Web scrolling not working:**
+1. Hard refresh your browser (Ctrl+Shift+R or Cmd+Shift+R)
+2. Clear browser cache
+3. The app includes web-specific scroll fixes in App.js
+
+**Dependencies:**
+```bash
+npm install
+```
+
+See [FRONTEND_SETUP.md](FRONTEND_SETUP.md) for complete troubleshooting.
+
+---
+
+## 🔐 Security
+
+JWT authentication (Supabase Auth), role-based access control, input validation, CORS, security headers, rate limiting.
+
+---
+
+## 🚀 Deployment
+
+Backend: Railway/Heroku (free) or Hetzner VPS (production)  
+Frontend: Expo Go (dev) → EAS Build (beta) → App Stores (prod)  
+See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for details.
+
+---
+
+## 📝 License
+
+MIT
+
+---
+
+## 🤝 Contributing
+
+When contributing:
+1. Follow the design system
+2. Write tests for new features
+3. Update documentation
+4. Follow code style (ESLint + Prettier)
+
+---
+
+## 💬 Support
+
+**Documentation:**
+- Backend: [backend/README_COMPLETE.md](backend/README_COMPLETE.md)
+- Frontend: [frontend/README.md](frontend/README.md)
+- API: [docs/API_IMPLEMENTED.md](docs/API_IMPLEMENTED.md)
+
+**Setup Help:**
+- Backend Setup: See backend README
+- Frontend Setup: [FRONTEND_SETUP.md](FRONTEND_SETUP.md)
+
+---
+
+## 🎉 Success!
+
+If you can start backend (health check), start frontend (login screen), and browse tournaments → You're all set!
+
+---
+
+## 🗺️ Roadmap
+
+**Phase 1:** ✅ Backend API complete  
+**Phase 2:** ⏳ Frontend in progress  
+**Phase 3:** Advanced features (real-time, notifications, admin)  
+**Phase 4:** Additional game modules, enhanced features
+
+---
+
+**Version:** 2.1.0
+**Status:** ✅ Backend Complete; Frontend in Progress
+**Last Updated:** October 2025
+
+---
+
+**🏆 Built for the Warmachine Tournament Community 🏆**

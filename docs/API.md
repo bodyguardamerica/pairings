@@ -2,8 +2,7 @@
 
 **Last Updated:** October 22, 2025  
 **API Version:** 1.0  
-**Base URL:** `https://api.pairings-project.com/v1` (production)  
-**Base URL:** `http://localhost:3000/api/v1` (development)
+**Base URL:** `http://localhost:3000/api` (development)
 
 ---
 
@@ -23,24 +22,22 @@ Authorization: Bearer <token>
 
 ### Response Format
 
+Responses return JSON with direct data:
+
 **Success Response:**
 ```json
 {
-  "success": true,
-  "data": { ... },
-  "message": "Optional success message"
+  "message": "Optional success message",
+  "data": { ... }
 }
 ```
 
 **Error Response:**
 ```json
 {
-  "success": false,
-  "error": {
-    "code": "ERROR_CODE",
-    "message": "Human-readable error message",
-    "details": { ... }
-  }
+  "error": "ERROR_CODE",
+  "message": "Human-readable error message",
+  "details": { }
 }
 ```
 
@@ -79,7 +76,7 @@ Create a new user account.
 **Response:** `201 Created`
 ```json
 {
-  "success": true,
+  "message": "User registered successfully",
   "data": {
     "user": {
       "id": "uuid",
@@ -112,7 +109,7 @@ Authenticate user and receive token.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Login successful",
   "data": {
     "user": { ... },
     "token": "jwt-token",
@@ -134,8 +131,7 @@ Invalidate current session token.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
-  "message": "Successfully logged out"
+  "message": "Logout successful"
 }
 ```
 
@@ -143,7 +139,7 @@ Invalidate current session token.
 
 ### Get Current User
 
-**GET** `/auth/me`
+**GET** `/auth/profile`
 
 **Auth Required:** Yes
 
@@ -152,7 +148,7 @@ Get currently authenticated user's information.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User retrieved successfully",
   "data": {
     "id": "uuid",
     "email": "user@example.com",
@@ -178,7 +174,7 @@ Get public user profile.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User profile retrieved successfully",
   "data": {
     "id": "uuid",
     "username": "player123",
@@ -221,13 +217,12 @@ Update user profile information.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User profile updated successfully",
   "data": {
     "id": "uuid",
     "display_name": "Johnny Doe",
     ...
-  },
-  "message": "Profile updated successfully"
+  }
 }
 ```
 
@@ -246,7 +241,7 @@ Get detailed player statistics.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User statistics retrieved successfully",
   "data": {
     "overall": {
       "wins": 45,
@@ -285,7 +280,7 @@ Get tournaments user has participated in.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User tournaments retrieved successfully",
   "data": {
     "tournaments": [
       {
@@ -331,7 +326,7 @@ Get list of tournaments.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Tournaments retrieved successfully",
   "data": {
     "tournaments": [
       {
@@ -397,14 +392,13 @@ Create a new tournament.
 **Response:** `201 Created`
 ```json
 {
-  "success": true,
+  "message": "Tournament created successfully",
   "data": {
     "id": "uuid",
     "name": "Monthly Steamroller",
     "status": "draft",
     ...
-  },
-  "message": "Tournament created successfully"
+  }
 }
 ```
 
@@ -419,7 +413,7 @@ Get detailed tournament information.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Tournament retrieved successfully",
   "data": {
     "id": "uuid",
     "name": "Monthly Steamroller",
@@ -487,7 +481,6 @@ Delete a tournament (only if status is 'draft' or 'registration' with no players
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
   "message": "Tournament deleted successfully"
 }
 ```
@@ -515,14 +508,13 @@ Register current user for tournament.
 **Response:** `201 Created`
 ```json
 {
-  "success": true,
+  "message": "Registration successful",
   "data": {
     "entry_id": "uuid",
     "tournament_id": "uuid",
     "player_id": "uuid",
     "registration_timestamp": "2025-10-22T14:30:00Z"
-  },
-  "message": "Successfully registered for tournament"
+  }
 }
 ```
 
@@ -551,13 +543,12 @@ Check in for tournament (confirms attendance).
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Checked in successfully",
   "data": {
     "entry_id": "uuid",
     "checked_in": true,
     "check_in_timestamp": "2025-11-15T09:45:00Z"
-  },
-  "message": "Checked in successfully"
+  }
 }
 ```
 
@@ -591,19 +582,14 @@ Get current tournament standings.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
   "data": {
     "standings": [
       {
         "rank": 1,
-        "player": {
-          "id": "uuid",
-          "display_name": "John Doe",
-          "username": "player123"
-        },
+        "player": { "id": "uuid", "display_name": "John Doe", "username": "player123" },
         "tournament_points": 5,
-        "victory_points": 15,
-        "army_points_destroyed": 375,
+        "control_points": 15,
+        "army_points": 375,
         "strength_of_schedule": 18,
         "record": "5-0-0",
         "dropped": false
@@ -629,7 +615,7 @@ Get list of registered/checked-in players.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Tournament players retrieved successfully",
   "data": {
     "players": [
       {
@@ -674,7 +660,7 @@ Generate pairings for the next round.
 **Response:** `201 Created`
 ```json
 {
-  "success": true,
+  "message": "Round pairings generated",
   "data": {
     "round_id": "uuid",
     "round_number": 3,
@@ -684,8 +670,7 @@ Generate pairings for the next round.
     },
     "matches_count": 12,
     "bye_player": null
-  },
-  "message": "Round 3 pairings generated"
+  }
 }
 ```
 
@@ -700,7 +685,7 @@ Get pairings for a specific round.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Round pairings retrieved successfully",
   "data": {
     "round_id": "uuid",
     "round_number": 3,
@@ -749,7 +734,7 @@ Get all rounds for a tournament.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Tournament rounds retrieved successfully",
   "data": {
     "rounds": [
       {
@@ -771,9 +756,11 @@ Get all rounds for a tournament.
 
 ---
 
+## Match Endpoints
+
 ### Report Match Result
 
-**POST** `/matches/:matchId/result`
+**POST** `/tournaments/matches/:matchId/result`
 
 **Auth Required:** Yes (player in match, organizer, or admin)
 
@@ -797,13 +784,12 @@ Report the result of a match.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Match result recorded",
   "data": {
     "match_id": "uuid",
     "result": "player1_win",
     "reported_at": "2025-11-15T14:30:00Z"
-  },
-  "message": "Match result recorded"
+  }
 }
 ```
 
@@ -811,7 +797,7 @@ Report the result of a match.
 
 ### Update Match Result
 
-**PUT** `/matches/:matchId`
+**PUT** `/tournaments/matches/:matchId/result`
 
 **Auth Required:** Yes (organizer or admin)
 
@@ -832,7 +818,7 @@ Get detailed match information.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Match retrieved successfully",
   "data": {
     "id": "uuid",
     "round_number": 3,
@@ -864,7 +850,7 @@ Get list of available game systems.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Game systems retrieved successfully",
   "data": {
     "game_systems": [
       {
@@ -890,7 +876,7 @@ Get available formats for a game system.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Formats retrieved successfully",
   "data": {
     "formats": [
       {
@@ -915,7 +901,7 @@ Get list of Warmachine scenarios.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Scenarios retrieved successfully",
   "data": {
     "scenarios": [
       {
@@ -952,7 +938,7 @@ Get list of all users with admin capabilities.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Users retrieved successfully",
   "data": {
     "users": [
       {
@@ -1055,7 +1041,7 @@ Get system-wide analytics.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "System analytics retrieved successfully",
   "data": {
     "users": {
       "total": 1247,
@@ -1104,7 +1090,7 @@ Get system audit logs.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "Audit logs retrieved successfully",
   "data": {
     "logs": [
       {
@@ -1147,7 +1133,7 @@ Get current user's notifications.
 **Response:** `200 OK`
 ```json
 {
-  "success": true,
+  "message": "User notifications retrieved successfully",
   "data": {
     "notifications": [
       {

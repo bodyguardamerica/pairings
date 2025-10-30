@@ -6,22 +6,10 @@ Node.js + Express API for the Pairings Project.
 
 See [../docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md) for setup instructions.
 
-## Structure
+## Documentation
 
-```
-backend/
-├── src/
-│   ├── core/          # Core system features
-│   ├── modules/       # Game-specific modules
-│   ├── api/           # API routes
-│   ├── middleware/    # Express middleware
-│   └── utils/         # Utility functions
-├── database/
-│   └── migrations/    # Database migrations
-├── tests/             # Test files
-└── package.json
-```
+See [README_COMPLETE.md](./README_COMPLETE.md) for the full backend guide and API details.
 
-## Coming Soon
+## Status
 
-Backend implementation will begin in Phase 1 of development.
+Backend MVP implemented. Use Supabase Auth for identity; JWTs are validated by the API. Refer to `docs/API_IMPLEMENTED.md` for current endpoints.

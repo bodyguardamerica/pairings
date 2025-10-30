@@ -1,7 +1,21 @@
 # DOCUMENTATION INDEX - Pairings Project
 
-**Last Updated:** October 22, 2025  
+**Last Updated:** October 26, 2025  
+**Last Sync & Consolidation:** October 2025  
 **Purpose:** Guide for navigating project documentation and delegating to other Claude instances
+
+---
+
+## Documentation Sync Status
+
+**October 2025 - Major Documentation Cleanup:**
+- ✅ All inconsistencies resolved across documentation
+- ✅ API paths, endpoints, and counts standardized (26 endpoints)
+- ✅ Terminology unified (CP/AP, SR2025 scenarios)
+- ✅ Canonical auth approach established (Supabase Auth)
+- ✅ Redundant status documents consolidated
+- ✅ Phase 0 documents merged into PHASE_0_SUMMARY.md
+- ✅ Admin features marked as planned for Phase 3
 
 ---
 
@@ -16,9 +30,12 @@ This project has comprehensive documentation to enable effective collaboration b
 | **README.md** | Project overview and quick start | First introduction to the project |
 | **ARCHITECTURE.md** | System design, tech stack, modules | Understanding overall system design |
 | **DATABASE.md** | Complete database schema | Working on data models or queries |
-| **API.md** | All API endpoints | Building or consuming APIs |
+| **API.md** | API specification | Building or consuming APIs |
+| **API_IMPLEMENTED.md** | All 26 implemented endpoints | Building frontend or testing backend |
 | **ROADMAP.md** | Development timeline | Planning work or checking priorities |
 | **DEPLOYMENT.md** | Hosting and deployment | Setting up environments |
+| **PROJECT_STATUS_UPDATED.md** | Current project status | Checking what's been built |
+| **PHASE_0_SUMMARY.md** | Phase 0 critical features | Reference for pre-launch features |
 
 ---
 

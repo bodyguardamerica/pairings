@@ -1,6 +1,6 @@
 # PROJECT ROADMAP - Pairings Project
 
-**Last Updated:** October 22, 2025  
+**Last Updated:** October 2025 (Updated with feature suggestions)  
 **Project Start:** October 2025  
 **Target MVP:** Q1 2026
 
@@ -229,52 +229,69 @@ Build a universal tournament organizer platform that makes running tabletop gami
 
 #### 2.2: Notifications System (1-2 weeks)
 
+**⚠️ Cost Management Note:** SMS notifications deferred to Phase 3 (too expensive without revenue). Focus on FREE notification methods first.
+
 **Backend:**
-- [ ] Push notification infrastructure (Firebase)
+- [ ] Push notification infrastructure (Firebase) - FREE
 - [ ] Notification preferences
 - [ ] Notification triggers
-- [ ] Email notification system
+- [ ] Email notification system (SendGrid/Mailgun integration) - FREE tier
+- [ ] Email alert preferences for new events
 
 **Frontend:**
 - [ ] Push notification handling
 - [ ] Notification settings screen
 - [ ] In-app notification display
+- [ ] Email preferences management screen
 
-**Notifications:**
-- [ ] Round pairings posted
-- [ ] Match about to start (5 min warning)
-- [ ] Tournament registration opened
-- [ ] Tournament starting soon
-- [ ] Result needs reporting
+**Notifications (FREE methods only):**
+- [ ] Round pairings posted (push + email)
+- [ ] Match about to start (5 min warning) - push
+- [ ] Tournament registration opened (push + email)
+- [ ] Tournament starting soon (push)
+- [ ] Result needs reporting (push)
+- [ ] New event alerts (push + email based on location/game preferences)
+
+**SMS Notifications:** Deferred to Phase 3.7 (after revenue established) - see SMS_NOTIFICATIONS_RESEARCH.md
 
 ---
 
-#### 2.3: Enhanced Statistics (2 weeks)
+#### 2.3: Enhanced Statistics & Global Rankings (2-3 weeks)
 
 **Backend:**
 - [ ] Detailed player statistics
 - [ ] Head-to-head records
 - [ ] Performance trends
-- [ ] Leaderboards (global, regional, seasonal)
+- [ ] **Global rankings system (RPI-based rating across all tournaments)**
+- [ ] Leaderboards (global, regional, seasonal, faction-specific)
 - [ ] Faction/army statistics
+- [ ] **Faction matchup win rates**
+- [ ] **Scenario performance statistics**
+- [ ] **Meta analysis for factions**
 
 **Frontend:**
 - [ ] Statistics dashboard
 - [ ] Charts and graphs
-- [ ] Leaderboard screens
+- [ ] Leaderboard screens (multiple categories)
 - [ ] Faction performance views
+- [ ] **Global ranking display**
+- [ ] **Regional ranking filters**
 
 ---
 
-#### 2.4: Advanced Tournament Features (2 weeks)
+#### 2.4: Advanced Tournament Features & Formats (2-3 weeks)
 
 - [ ] Team tournaments
 - [ ] "Cut to Top X" functionality
+- [ ] **Leagues format (flexible scheduling, no strict rounds)**
 - [ ] Multi-day tournaments
 - [ ] Scenario selection methods (sequential, TO choice)
 - [ ] Custom tiebreakers
 - [ ] Tournament templates
 - [ ] Recurring tournaments
+- [ ] **Advanced pairing options (adjacent, fold, slide pairing)**
+- [ ] **Bracket/elimination pairing support**
+- [ ] **Manual pairings option**
 
 ---
 
@@ -285,6 +302,97 @@ Build a universal tournament organizer platform that makes running tabletop gami
 - [ ] Time warnings
 - [ ] Automatic loss on timeout
 - [ ] Clock adjustment (TO only)
+
+---
+
+#### 2.6: Geographic Event Discovery & Army Lists (2 weeks)
+
+**Geographic Features:**
+- [ ] **Geographic filtering (continent, country, state/region, city)**
+- [ ] **Distance-based search ("Near Me" feature)**
+- [ ] **Map view of events**
+- [ ] **Timezone handling and display**
+- [ ] Location-based event recommendations
+
+**Army List Management (Warmachine):**
+- [ ] **Army list submission**
+- [ ] **List editing deadlines**
+- [ ] **List privacy (public/private)**
+- [ ] **List validation**
+- [ ] **List file upload (PDF, etc.)**
+- [ ] **Print lists for opponents**
+
+---
+
+#### 2.7: Waiting Lists & Entry Fees (1-2 weeks)
+
+**Waiting Lists:**
+- [ ] **Waiting list for full events**
+- [ ] **Auto-promotion from waitlist**
+- [ ] **Capacity limits**
+- [ ] **Registration approval workflow**
+
+**Entry Fees & Payments:**
+- [ ] **Entry fee configuration**
+- [ ] **Payment processing integration (Stripe/Square)**
+- [ ] **Prize pool management**
+- [ ] **Refund management**
+- [ ] **Payment status tracking**
+
+---
+
+#### 2.8: UX Improvements & Communication (1 week)
+
+**UX Features:**
+- [ ] **Dark mode support**
+- [ ] **Offline mode (cache data, queue actions)**
+- [ ] **QR code check-in for tournaments**
+- [ ] **Match history viewer**
+
+**Communication:**
+- [ ] **TO announcements system**
+- [ ] **In-tournament messaging**
+
+---
+
+#### 2.9: Data Export & International Support (1 week)
+
+**Data Export:**
+- [ ] **Export tournament results to CSV/JSON**
+- [ ] **Export player statistics**
+- [ ] **Backup/restore tournament data**
+- [ ] **Data portability for users**
+
+**International:**
+- [ ] **Multi-language support (i18n)**
+- [ ] **Language selection UI**
+- [ ] **Localized date/time formats**
+
+---
+
+#### 2.10: Guest Access & Public Features (1 week)
+
+**Guest Account Features:**
+- [ ] **Guest account creation (no email required)**
+- [ ] **Guest tournament participation**
+- [ ] **Limited guest features (no statistics, temporary account)**
+- [ ] **Guest-to-full account conversion**
+- [ ] **Guest account expiration (30-day auto-cleanup)**
+
+**Public Access:**
+- [ ] **View tournaments without login**
+- [ ] **Public tournament listings**
+- [ ] **Public standings/results viewing**
+- [ ] **Event calendar (public)**
+- [ ] **Share tournament links (public access)**
+
+**Tournament Rating System:**
+- [ ] **Rated vs Unrated event toggle**
+- [ ] **Rating impact display**
+- [ ] **Filter by rated/unrated events**
+- [ ] **Casual/practice event designation**
+
+**Value:** Lowers barrier to entry, increases event discovery, allows tournament testing without commitment
 
 ---
 
@@ -342,6 +450,73 @@ Build a universal tournament organizer platform that makes running tabletop gami
 - [ ] Video tutorials
 - [ ] API documentation (public)
 - [ ] Support ticket system
+- [ ] **User feature request portal**
+- [ ] **Voting/upvoting on feature requests**
+- [ ] **Public roadmap display**
+- [ ] **Feature request status tracking**
+
+---
+
+#### 3.4.1: Alternative Tournament Formats (1-2 weeks)
+
+**Single Match Events:**
+- [ ] **Standalone single match recording** (no tournament structure required)
+- [ ] **Casual play tracking**
+- [ ] **Pick-up game results**
+- [ ] **League match recording** (independent of rounds)
+- [ ] **Practice match tracking**
+- [ ] **Head-to-head challenge system**
+
+**Value:** Allows players to track all games, not just tournaments. Builds engagement between events.
+
+---
+
+#### 3.5: SMS Text Notifications (1-2 weeks) ⚠️ COST-CONTROLLED
+
+**Prerequisites (MUST have):**
+- [ ] Entry fees/payment processing working
+- [ ] 500+ active monthly users
+- [ ] Revenue stream established
+- [ ] Cost recovery mechanism in place
+
+**⚠️ Cost Management Critical:**
+- SMS costs ~$0.0075 per message
+- Can reach $750+/month at scale
+- **MUST** implement cost controls and recovery
+
+**Backend:**
+- [ ] Twilio integration (or AWS SNS/Plivo)
+- [ ] SMS service with cost tracking
+- [ ] Daily/monthly SMS budget limits
+- [ ] Automatic fallback to push if budget exceeded
+- [ ] Cost monitoring dashboard
+- [ ] Usage throttling per user
+
+**Database:**
+- [ ] Add phone_number to users table
+- [ ] Add phone_verified field
+- [ ] SMS preferences table
+- [ ] SMS usage tracking table
+
+**Frontend:**
+- [ ] Phone number collection/verification
+- [ ] SMS preferences UI (opt-in)
+- [ ] SMS notification settings
+- [ ] Cost display (if pay-per-use)
+
+**Cost Recovery Options (choose one):**
+- [ ] Premium subscription includes SMS ($5/month)
+- [ ] Pay-per-use SMS credits ($10 = 1,000 SMS)
+- [ ] Tournament SMS fee ($0.50 per tournament)
+- [ ] Free tier with limits (10 SMS/month)
+
+**Notification Strategy:**
+- [ ] SMS for urgent only (round pairings, match starting)
+- [ ] Push notifications for everything else
+- [ ] Email for digests/summaries
+- [ ] SMS opt-in only (never default)
+
+**See:** SMS_NOTIFICATIONS_RESEARCH.md for detailed implementation guide and cost analysis
 
 ---
 
@@ -400,13 +575,15 @@ Based on user demand:
 - [ ] Tournament chat/forums
 - [ ] Team/club management
 - [ ] Share tournament results to social media
+- [ ] Spectator mode (follow players, view tournaments without competing)
+- [ ] Follow favorite players feature
 
 ---
 
 #### 5.2: Marketplace/Store Integration
 
 - [ ] Event ticketing
-- [ ] Entry fee collection
+- [ ] **Entry fee collection (Moved to Phase 2.7)**
 - [ ] Prize pool management
 - [ ] Store credit tracking
 - [ ] Payment processing (Stripe)
@@ -415,6 +592,7 @@ Based on user demand:
 
 #### 5.3: League Management
 
+- [ ] **Leagues format (Moved to Phase 2.4)**
 - [ ] Season-long leagues
 - [ ] Cumulative rankings
 - [ ] League playoffs
@@ -433,11 +611,33 @@ Based on user demand:
 
 #### 5.5: AI & Analytics
 
+**Predictive Analytics:**
 - [ ] Meta analysis
 - [ ] List strength predictions
 - [ ] Matchup win rates
 - [ ] Player performance predictions
 - [ ] Tournament outcome predictions
+
+**AI-Powered Features:**
+- [ ] **AI-generated statistics summaries** (natural language summaries of player performance)
+- [ ] **Tournament recap generation** (automated narrative summaries)
+- [ ] **Player strengths/weaknesses analysis** (AI-powered insights)
+- [ ] **Matchup advice** (AI recommendations based on historical data)
+- [ ] **Performance trend analysis** (AI-detected patterns)
+- [ ] **Personalized improvement suggestions**
+
+**Value:** Helps players understand their performance without manual analysis. Creates engaging content automatically.
+
+---
+
+#### 5.6: Advanced Tournament Management (Future)
+
+- [ ] Referee/staff management system
+- [ ] Sponsor & advertising management
+- [ ] Hotel & travel integration for major events
+- [ ] External rating system integration
+- [ ] Conflict detection for multi-tournament play
+- [ ] Prize distribution tracking & history
 
 ---
 
